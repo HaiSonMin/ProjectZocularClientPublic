@@ -1,0 +1,17 @@
+npm i sass
+npm i zustand
+npm i styled-components
+npm i react-hook-form
+npm i react-icons
+npm i socket.io-client
+npm i framer-motion
+npm i antd
+
+npm i class-variance-authority
+npm i tailwind-merge
+npm i shadcn-ui
+npm i @radix-ui/react-context-menu
+npm i lucide-react
+
+git push company --delete dev
+git remote rename company com

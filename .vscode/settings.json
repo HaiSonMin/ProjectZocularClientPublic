@@ -1,0 +1,9 @@
+{
+    "files.autoSave": "off",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "workbench.tree.enableStickyScroll": true,
+    "editor.stickyScroll.enabled": false,
+    "debug.enableStatusBarColor": true,
+    "editor.fontSize": 14
+}
