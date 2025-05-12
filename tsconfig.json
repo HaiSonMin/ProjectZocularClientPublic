@@ -18,10 +18,12 @@
         "name": "next"
       }
     ],
+        "baseUrl": ".",            
+
     "paths": {
-      "@/*": ["./src/*"],
-      "public/*": ["./public/*"],
-      "@/layouts/dashboard/*": ["./src/layouts/dashboard/*"]
+   "@/*": ["src/*"],
+      "public/*": ["public/*"],
+      "@/layouts/dashboard/*": ["src/layouts/dashboard/*"]
     }
   },
   "include": [
@@ -30,7 +32,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/apis/socials/instagram/scripts/posts/script-post-highlight-stories.api.ts",
-    "src/layouts/tools/canva/action/CanvaSettingTab1.tsx"
+    "src/layouts/tools/canva/action/CanvaSettingTab1.tsx",
+     "src/global.d.ts",  
+  
   ],
   "exclude": ["node_modules"]
 }

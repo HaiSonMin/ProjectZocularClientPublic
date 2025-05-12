@@ -1,13 +1,32 @@
-import './globals.scss';
-import type { Metadata } from 'next';
-import { Roboto_Serif } from 'next/font/google';
-import ToasterDisplay from '@/components/notifications/ToasterDisplay';
+import ToasterDisplay from "@/components/ui/notifications/ToasterDisplay";
+import "./globals.scss";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
 
-const roboto = Roboto_Serif({ subsets: ['latin'] });
+const geistSans = localFont({
+  src: [
+    {
+      path: "../fonts/GeistVF.woff",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-geist-mono",
+});
+const geistMono = localFont({
+  src: [
+    {
+      path: "../fonts/GeistMonoVF.woff",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-geist-mono",
+});
 
 export const metadata: Metadata = {
-  title: 'Automation Socials',
-  description: 'BoDevops developer',
+  title: "Automation Socials",
+  description: "BoDevops developer",
 };
 export default function RootLayout({
   children,
@@ -15,8 +34,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={roboto.className} lang='en'>
-      <body>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {children}
         <ToasterDisplay />
       </body>

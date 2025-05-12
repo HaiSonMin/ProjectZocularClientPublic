@@ -1,3 +1,6 @@
-export * from './convert.util';
-export * from './validation.util';
-export * from './random.util';
+export const formatCurrency = (number: number) => {
+	return new Intl.NumberFormat("en-US", {
+		style: "currency",
+		currency: "USD",
+	}).format(number);
+};
