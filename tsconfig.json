@@ -33,7 +33,7 @@
     ".next/types/**/*.ts",
     "src/apis/socials/instagram/scripts/posts/script-post-highlight-stories.api.ts",
     "src/layouts/tools/canva/action/CanvaSettingTab1.tsx",
-     "src/global.d.ts",  
+     "src/global.d.ts", "src/components/ui/radio-gronp",  
   
   ],
   "exclude": ["node_modules"]

@@ -1,7 +1,11 @@
-import ToasterDisplay from "@/components/ui/notifications/ToasterDisplay";
-import "./globals.scss";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import "./globals.scss";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Toaster } from "react-hot-toast";
+import LoginPromptModal from "@/components/LoginPromptModal";
+import Providers from "@/components/providers";
 
 const geistSans = localFont({
   src: [
@@ -23,23 +27,24 @@ const geistMono = localFont({
   ],
   variable: "--font-geist-mono",
 });
-
 export const metadata: Metadata = {
-  title: "Automation Socials",
-  description: "BoDevops developer",
+  title: "Zocular",
+  description: "Zucorlar",
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        <ToasterDisplay />
+        <Toaster position="top-center" reverseOrder={false} />
+        <LoginPromptModal />
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

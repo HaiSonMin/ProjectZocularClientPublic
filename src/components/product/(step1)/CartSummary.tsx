@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label/label";
 import {
   RadioGroup,
   RadioGroupItem,
-} from "@/components/ui/radio-gronp.tsx/radio-group";
+} from "@/components/ui/radio-gronp/radio-group";
 import { useCartStore } from "@/stores/useCartStore";
 
 type ShippingMethod = "free" | "express";
