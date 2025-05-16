@@ -1,6 +1,6 @@
 "use client";
 
-import { useCartStore } from "@/stores/useCartStore";
+import { useCartStore } from "@/app/stores/useCartStore";
 import React, { useState } from "react";
 
 const OrderSummary: React.FC = () => {

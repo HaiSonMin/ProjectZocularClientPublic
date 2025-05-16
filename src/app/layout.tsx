@@ -5,7 +5,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Toaster } from "react-hot-toast";
 import LoginPromptModal from "@/components/LoginPromptModal";
-import Providers from "@/components/providers";
+import { getMe } from "@/apis";
+import { AuthInitializer } from "@/components/AuthInitializer";
 
 const geistSans = localFont({
   src: [
@@ -32,11 +33,15 @@ export const metadata: Metadata = {
   description: "Zucorlar",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const meResponse = await getMe();
+
+  console.log("meResponse kaka", meResponse);
+
   return (
     <html lang="en" className="overflow-x-hidden">
       <body
@@ -44,7 +49,13 @@ export default function RootLayout({
       >
         <Toaster position="top-center" reverseOrder={false} />
         <LoginPromptModal />
-        <Providers>{children}</Providers>
+
+        <AuthInitializer
+          user={
+            meResponse?.statusCode === 200 ? meResponse?.metadata ?? null : null
+          }
+        />
+        {children}
       </body>
     </html>
   );

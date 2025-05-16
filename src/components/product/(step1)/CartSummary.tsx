@@ -8,7 +8,7 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "@/components/ui/radio-gronp/radio-group";
-import { useCartStore } from "@/stores/useCartStore";
+import { useCartStore } from "@/app/stores/useCartStore";
 
 type ShippingMethod = "free" | "express";
 

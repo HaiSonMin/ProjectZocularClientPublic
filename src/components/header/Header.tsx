@@ -11,6 +11,11 @@ import {
 } from "framer-motion";
 import { useState } from "react";
 import { Button } from "../ui/buttons/button";
+import { useHandleFeatureClick } from "@/utils";
+import { routes } from "@/constants/routes";
+import { useAuthStore } from "@/app/stores/useAuth";
+import { logout } from "@/apis";
+import toast from "react-hot-toast";
 
 interface NavLink {
   href: string;
@@ -38,8 +43,7 @@ const THEME = {
 
 export const Header = () => {
   const pathname = usePathname();
-  const user = null;
-  const router = useRouter();
+  const { user, setUser } = useAuthStore();
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -55,6 +59,16 @@ export const Header = () => {
       pathname === href ? "text-white font-bold" : "hover:text-gray-200"
     }`;
 
+  const handleFeatureClick = useHandleFeatureClick();
+
+  const handleLogout = async () => {
+    const response = await logout();
+
+    if (response?.statusCode === 200) {
+      toast.success(response?.message);
+      setUser(null);
+    }
+  };
   return (
     <motion.header
       className={`fixed top-0 left-0 w-full z-50 ${THEME.primaryColor} transition-all duration-300`}
@@ -73,7 +87,11 @@ export const Header = () => {
 
         <nav className="justify-center flex-1 hidden font-medium md:space-x-2 lg:space-x-8 md:flex">
           {NAV_LINKS.map(({ href, label, isPublic }) => (
-            <button key={href} className={navLinkClass(href)}>
+            <button
+              key={href}
+              className={navLinkClass(href)}
+              onClick={() => handleFeatureClick(href)}
+            >
               {label}
             </button>
           ))}
@@ -81,7 +99,10 @@ export const Header = () => {
 
         {!user ? (
           <div className="flex items-center gap-2">
-            <button className="relative mr-3">
+            <button
+              className="relative mr-3 "
+              onClick={() => handleFeatureClick("/product")}
+            >
               <ShoppingCart
                 size={24}
                 aria-label="Cart"
@@ -93,12 +114,14 @@ export const Header = () => {
             </button>
 
             <Button
+              onClick={() => handleFeatureClick(routes.login)}
               variant="outline"
               className="bg-white text-black hover:bg-gray-100 border-white min-w-[106px] hover:text-orange-500"
             >
               LOG IN
             </Button>
             <Button
+              onClick={() => handleFeatureClick(routes.registerCustomer)}
               variant="outline"
               className="!bg-transparent text-white border-none min-w-[106px] hover:text-black"
             >
@@ -125,6 +148,7 @@ export const Header = () => {
 
             <button>
               <LogOut
+                onClick={handleLogout}
                 size={24}
                 aria-label="Logout"
                 className="transition hover:text-gray-200"
@@ -151,7 +175,12 @@ export const Header = () => {
             className={`md:hidden absolute top-full left-0 w-full ${THEME.primaryColor} py-4 px-6 flex flex-col space-y-4 z-40`}
           >
             {NAV_LINKS.map(({ href, label }) => (
-              <Link key={href} href={href} className={navLinkClass(href)}>
+              <Link
+                key={href}
+                href={href}
+                className={navLinkClass(href)}
+                onClick={() => handleFeatureClick(href)}
+              >
                 {label}
               </Link>
             ))}

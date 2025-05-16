@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatCurrency } from "@/utils";
-import { CartItem } from "@/app/store/types";
+import { CartItem } from "@/app/stores/types";
 
 export const CartItemComponent: React.FC<{ item: CartItem }> = ({ item }) => {
   const [showConfirm, setShowConfirm] = useState(false);

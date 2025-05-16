@@ -1,25 +1,20 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
 
-// Middleware runs only on routes that include "private" in the path
+// middleware.ts
+import { CONST_VALUES } from '@/constants'
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
+
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-  // Try to read token cookie
-  const token = request.cookies.get("token")?.value;
+  // Kiểm tra token đăng nhập một cách ngắn gọn
 
-  // If accessing a "private" route without a token, redirect to login
-  if (pathname.includes("private") && !token) {
-    const loginUrl = new URL("/auth/login", request.url);
-    return NextResponse.redirect(loginUrl);
-  }
+console.log("token",request.cookies.has(CONST_VALUES?.TOKEN));
 
-  // Otherwise, continue as normal
-  return NextResponse.next();
+
+  return request.cookies.has(CONST_VALUES?.TOKEN)
+  ? NextResponse.redirect(new URL('/', request.url))
+  : NextResponse.next()
 }
 
-export const config = {
-  // Apply middleware only to paths containing "private"
-  matcher: [
-    "/:path*private/:path*"
-  ],
-};
+ export const config = {
+  matcher: ['/auth/login/:path*']
+}

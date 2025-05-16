@@ -4,7 +4,7 @@ import React from "react";
 import OrderSummary from "./OrderSummary";
 import ContactForm from "@/components/product/(step2)/ContactForm";
 import { z } from "zod";
-import { checkoutSchema } from "@/app/store/types";
+import { checkoutSchema } from "@/app/stores/types";
 
 type CheckoutFormData = z.infer<typeof checkoutSchema>;
 

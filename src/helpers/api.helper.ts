@@ -31,6 +31,8 @@ export const api = async <TypeResult>({
     credentials: 'include',
   };
 
+  console.log("url",url);
+  
   let response = await fetch(url, dataOptions);
 
   let result: TypeResult & IErrorResponse = await response.json();

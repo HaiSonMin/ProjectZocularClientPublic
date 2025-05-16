@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button } from "@/components/ui/(OutApp)/Button";
-import { checkoutSchema } from "@/app/store/types";
+import { checkoutSchema } from "@/app/stores/types";
 import InputField from "@/components/ui/(OutApp)/InputField";
 import { RadioGroup } from "@/components/ui/(OutApp)/RadioGroup";
 import { Card, CardContent } from "@/components/ui/(OutApp)/Cart";

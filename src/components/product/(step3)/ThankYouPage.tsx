@@ -1,5 +1,5 @@
 "use client";
-import { useCartStore } from "@/stores/useCartStore";
+import { useCartStore } from "@/app/stores/useCartStore";
 import React from "react";
 
 const OrderReceived = () => {

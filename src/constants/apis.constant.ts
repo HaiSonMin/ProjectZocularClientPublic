@@ -1,5 +1,5 @@
 export const CONST_APIS = {
-  SERVER_URL: 'http://localhost:9000/api/v1',
+  SERVER_URL: 'http://localhost:9001/api',
   FEATURES: {
     AUTH: {
       LOGIN: 'login',

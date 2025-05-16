@@ -18,22 +18,31 @@ import { IUser } from '@/interfaces/models/IUser.interface';
 const USER = 'USER';
 
 export async function login(payload: IAuthLogin) {
+   
+   const rememberMe: boolean = payload.rememberMe ?? false;
+
+
   const result = await api<IBaseResponse<IResponseLogin>>({
-    url: `${CONST_APIS.SERVER_URL}/${CONST_APIS.FEATURES.AUTH}/${CONST_APIS.FEATURES.AUTH.LOGIN}`,
+    url: `${CONST_APIS.SERVER_URL}/${CONST_APIS.FEATURES.COMMON.AUTH}/${CONST_APIS.FEATURES.AUTH.LOGIN}`,
     options: {
       method: CONST_METHODS.POST,
       body: JSON.stringify(payload),
     },
   });
 
+  const maxAge = rememberMe
+  ? BoUtilsCommon.UtilConvert.convertTimeToMilisecond({
+      value: 30,
+      typeTime: 'DAY' as BoTypeCommon.TTime,
+    })
+  : undefined;  // undefined => không set maxAge => cookie sẽ là session cookie
+
+
   if (result.metadata?.token) {
     cookies().set(CONST_VALUES.TOKEN, result.metadata?.token, {
       httpOnly: true,
       secure: true,
-      maxAge: BoUtilsCommon.UtilConvert.convertTimeToMilisecond({
-        value: 15,
-        typeTime: 'DAY' as BoTypeCommon.TTime,
-      }),
+      ...(rememberMe && { maxAge }),
     });
   }
 
@@ -42,7 +51,7 @@ export async function login(payload: IAuthLogin) {
 
 export async function getMe() {
   const result = await api<IBaseResponse<IUser>>({
-    url: `${CONST_APIS.SERVER_URL}/${CONST_APIS.FEATURES.AUTH}/${CONST_APIS.FEATURES.AUTH.GET_ME}`,
+    url: `${CONST_APIS.SERVER_URL}/${CONST_APIS.FEATURES.COMMON.AUTH}/${CONST_APIS.FEATURES.AUTH.GET_ME}`,
     options: {
       method: CONST_METHODS.GET,
       next: {
@@ -77,7 +86,7 @@ export async function changePassword(payload: IChangePassword) {
 
 export async function logout() {
   const result = await api<IBaseResponse<IUser>>({
-    url: `${CONST_APIS.SERVER_URL}/${CONST_APIS.FEATURES.AUTH}/${CONST_APIS.FEATURES.AUTH.LOGOUT}`,
+    url: `${CONST_APIS.SERVER_URL}/${CONST_APIS.FEATURES.COMMON.AUTH}/${CONST_APIS.FEATURES.AUTH.LOGOUT}`,
     options: {
       method: CONST_METHODS.POST,
     },
