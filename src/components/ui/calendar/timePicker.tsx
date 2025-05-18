@@ -168,7 +168,7 @@ export const TimePicker = forwardRef<TimePickerRef, TimePickerProps>(
             {prev}
           </div>
           <div
-            ref={refs[unit]}
+            ref={refs[unit === "isPM" ? "ampm" : unit]}
             className="bg-gray-50 font-medium rounded px-2 py-1"
           >
             {val}
