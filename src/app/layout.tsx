@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Toaster } from "react-hot-toast";
 import LoginPromptModal from "@/components/LoginPromptModal";
-import { getMe } from "@/apis";
+import { getMe } from "@/apis/common";
 import { AuthInitializer } from "@/components/AuthInitializer";
 
 const geistSans = localFont({
@@ -39,8 +39,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const meResponse = await getMe();
-
-  console.log("meResponse kaka", meResponse);
 
   return (
     <html lang="en" className="overflow-x-hidden">

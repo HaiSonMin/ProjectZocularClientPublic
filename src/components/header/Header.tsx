@@ -14,7 +14,7 @@ import { Button } from "../ui/buttons/button";
 import { useHandleFeatureClick } from "@/utils";
 import { routes } from "@/constants/routes";
 import { useAuthStore } from "@/app/stores/useAuth";
-import { logout } from "@/apis";
+import { logout } from "@/apis/common";
 import toast from "react-hot-toast";
 
 interface NavLink {

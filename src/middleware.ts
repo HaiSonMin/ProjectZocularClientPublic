@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
  
 
   return request.cookies.has(CONST_VALUES?.TOKEN)
-  ? NextResponse.redirect(new URL('/', request.url))
+  ? NextResponse.redirect(new URL('/dashboard', request.url))
   : NextResponse.next()
 }
 

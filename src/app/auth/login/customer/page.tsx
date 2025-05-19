@@ -17,7 +17,7 @@ import {
   FormMessage,
 } from "@/components/ui/form/form";
 import { Button } from "@/components/ui/buttons/button";
-import { login } from "@/apis";
+import { login } from "@/apis/common";
 import { useAuthStore } from "@/app/stores/useAuth";
 import { useRouter } from "next/navigation";
 
