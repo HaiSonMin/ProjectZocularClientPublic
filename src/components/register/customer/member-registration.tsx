@@ -31,6 +31,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox/checkbox";
 import { Separator } from "@/components/ui/separator/separator";
 import { Input } from "@/components/ui/input/input";
+import Image from "next/image";
 
 const formSchema = z
   .object({
@@ -224,7 +225,7 @@ export default function MemberRegistration() {
                       <div className="flex">
                         <div className="flex items-center border rounded-l-md px-3 bg-gray-100">
                           <span className="flex items-center gap-1">
-                            <img
+                            <Image
                               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%205198.jpg-w3X5ceICcozPwIhSYGPFFD4HGLDMkk.jpeg"
                               alt="US Flag"
                               className="w-6 h-4"
@@ -259,7 +260,7 @@ export default function MemberRegistration() {
                       <div className="flex !mt-[13px]">
                         <div className="flex items-center border rounded-l-md px-3 bg-gray-100">
                           <span className="flex items-center gap-1">
-                            <img
+                            <Image
                               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%205198.jpg-w3X5ceICcozPwIhSYGPFFD4HGLDMkk.jpeg"
                               alt="US Flag"
                               className="w-6 h-4"

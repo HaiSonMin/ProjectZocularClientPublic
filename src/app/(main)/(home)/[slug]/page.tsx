@@ -349,7 +349,7 @@ const ProductDetail = () => {
                 transition: { duration: 0.3, ease: "easeInOut" },
               }}
             >
-              Width: 9", Height: 1 1/8", Length: 6 1/8"
+              Width: 9&quot;, Height: 1 1/8&quot;, Length: 6 1/8&quot;
               <br />
               Weight: 7.8 oz
               <br />

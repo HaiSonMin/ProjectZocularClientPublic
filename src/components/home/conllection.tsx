@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const collections = [
   { name: "AGELESS", icon: "/images/home/conllection/01.png" },
@@ -35,7 +36,7 @@ const CollectionSlider = () => {
       >
         {collections.map((collection, index) => (
           <SwiperSlide key={index} className="!flex flex-col items-center">
-            <img
+            <Image
               src={collection.icon}
               alt={collection.name}
               className="w-12 h-12 mb-2"

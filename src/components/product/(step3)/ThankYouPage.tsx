@@ -1,5 +1,6 @@
 "use client";
 import { useCartStore } from "@/app/stores/useCartStore";
+import Image from "next/image";
 import React from "react";
 
 const OrderReceived = () => {
@@ -40,7 +41,7 @@ const OrderReceived = () => {
       <div className="flex justify-center gap-6 mt-6">
         {cart.map((product) => (
           <div key={product.id} className="relative mx-2">
-            <img
+            <Image
               src={product.image}
               alt={product.name}
               className="w-14 h-14 object-cover rounded-lg"

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -79,7 +80,7 @@ const TikTokVideo = () => {
               ></iframe>
             </div>
             <div className="mt-4 text-center flex justify-center items-center">
-              <img
+              <Image
                 src={video.product.image}
                 alt={video.product.name}
                 className="w-12 h-12 mb-2"

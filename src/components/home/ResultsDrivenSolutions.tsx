@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const products = [
@@ -43,7 +44,7 @@ const ResultsDrivenSolutions = () => {
         {products.map((product, index) => (
           <div key={index} className="flex flex-col items-center text-center">
             <div className="w-full h-72 overflow-hidden rounded-lg shadow-md">
-              <img
+              <Image
                 src={product.image}
                 alt={product.name}
                 className="w-full h-full object-cover"

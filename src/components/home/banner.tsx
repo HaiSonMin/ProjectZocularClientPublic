@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Banner = () => (
   <motion.section
@@ -11,10 +12,13 @@ const Banner = () => (
     viewport={{ once: true }}
   >
     <div className="absolute top-0 left-0 w-full h-full z-0">
-      <img
+      <Image
         src="/images/home/banner-01.jpg"
         alt="Banner"
+        layout="fill"
+        objectFit="cover"
         className="w-full h-full object-cover"
+        priority
       />
     </div>
   </motion.section>

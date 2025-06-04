@@ -25,7 +25,7 @@ const LoginPromptModal: React.FC = () => {
           >
             <h2 className="text-xl font-bold text-black mb-4">Please log in</h2>
             <p className="text-gray-600 mb-6">
-              Log in to keep going with what you're doing.
+              Log in to keep going with what you&#39;re doing.
             </p>
 
             <motion.button

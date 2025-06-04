@@ -66,7 +66,7 @@ export default function Page() {
       <h1 className="text-4xl font-bold text-orange-500 mb-2">Sign In</h1>
 
       <p className="mb-8 text-gray-600">
-        Don't have an accout yet?
+        Don&apos;t have an account?
         <Link href="/signup" className="text-green-500 ml-1 hover:underline">
           Sign Up
         </Link>

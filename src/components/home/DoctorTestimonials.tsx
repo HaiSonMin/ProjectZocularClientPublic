@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -55,7 +56,7 @@ const DoctorTestimonials = () => {
                 “{testimonial.text}”
               </div>
               <div className="mt-4 flex flex-col items-center">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full mb-2"

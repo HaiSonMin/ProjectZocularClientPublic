@@ -6,13 +6,12 @@ import { useEffect } from "react";
 
 export function AuthInitializer({ user }: { user: IUser | null }) {
   const { setUser } = useAuthStore();
-  console.log("user", user);
 
   useEffect(() => {
     if (user) {
       setUser(user);
     }
-  }, [user]);
+  }, [user, setUser]);
 
   return null;
 }

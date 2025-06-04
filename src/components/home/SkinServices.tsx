@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const services = [
   { title: "REGIMEN BUILDER", image: "/images/home/skinService/01.png" },
@@ -33,7 +34,7 @@ const SkinServices = () => {
             viewport={{ once: true }}
           >
             <div className="w-full h-64 rounded-lg overflow-hidden shadow-lg">
-              <img
+              <Image
                 src={service.image}
                 alt={service.title}
                 className="w-full h-full object-cover"

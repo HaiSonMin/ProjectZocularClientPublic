@@ -1,6 +1,7 @@
 "use client";
 
 import { useCartStore } from "@/app/stores/useCartStore";
+import Image from "next/image";
 import React, { useState } from "react";
 
 const OrderSummary: React.FC = () => {
@@ -18,7 +19,7 @@ const OrderSummary: React.FC = () => {
       <div className="space-y-4">
         {cart.map((product) => (
           <div key={product.id} className="flex items-center justify-between">
-            <img
+            <Image
               src={product.image}
               alt={product.name}
               className="w-12 h-12 object-cover"

@@ -7,13 +7,14 @@ import { CartItemComponent } from "./CartForm";
 import { CartSummary } from "./CartSummary";
 import { Input } from "@/components/ui/(OutApp)/input";
 import { Button } from "@/components/ui/(OutApp)/Button";
+import { CartItem } from "@/app/stores/types";
 
 interface IProps {
   nextStep: () => void;
 }
 
 const ShoppingCart = ({ nextStep }: IProps) => {
-  const cart = 0;
+  const cart: Array<{ id: string; [key: string]: any }> = [];
   const [coupon, setCoupon] = useState("");
   const handleApply = () => {};
   const handleCheckout = () => {
@@ -33,7 +34,9 @@ const ShoppingCart = ({ nextStep }: IProps) => {
             <span className="text-center">Subtotal</span>
           </div>
           {cart.length > 0 ? (
-            cart.map((item) => <CartItemComponent key={item.id} item={item} />)
+            cart.map((item) => (
+              <CartItemComponent key={item.id} item={item as any} />
+            ))
           ) : (
             <p className="text-center text-gray-500">Your cart is empty.</p>
           )}
